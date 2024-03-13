@@ -130,9 +130,12 @@ class _myScreenState extends State<myScreen> {
       nowNum = double.parse(mainText.split(calcList.last).last);
       calcList.add(nowNum);
       totalList.add(nowNum);
+      print(':::${prevNum}');
+      print(':::${nowNum}');
       String calcValue = '';
-
+      print(':::${calcList}');
       calcList.forEach((c) {
+        print(calcValue);
         switch (c) {
           case '*':
             calcValue = (prevNum * nowNum).toString();
@@ -147,7 +150,7 @@ class _myScreenState extends State<myScreen> {
             calcValue = (prevNum - nowNum).toString();
             break;
           default:
-            prevNum = c;
+            //prevNum = c;
             break;
         }
       });
@@ -157,8 +160,8 @@ class _myScreenState extends State<myScreen> {
       calcList.add(prevNum);
       if (calcList.isNotEmpty &&
           (calcList[0] is int || calcList[0] is double)) {
-        mainText = '${calcList[0]}';
-        print(totalList);
+        mainText = '${calcValue}';
+        //print(totalList);
         //prevResult();
       }
       print(calcList);
